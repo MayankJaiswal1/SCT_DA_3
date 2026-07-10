@@ -1,1 +1,123 @@
 # SCT_DA_3
+# IBM HR Attrition Analysis — Interactive Tableau Dashboard
+
+An interactive Tableau dashboard exploring **why employees leave**, built on IBM's fictional HR Analytics Employee Attrition dataset. The dashboard lets a viewer filter by department, age group, job role, overtime status, and marital status, with every KPI and chart recalculating live against the selection.
+
+**🔗 Live Dashboard:** [Add your Tableau Public link here](https://public.tableau.com/)
+
+---
+
+## 📌 Objective
+
+> Why are employees leaving, and which factors correlate most strongly with attrition?
+
+Rather than a single static answer, the dashboard is built to let HR stakeholders slice the data themselves — by department, age bracket, or role — and see which drivers (overtime, income, tenure, satisfaction, commute distance) matter most *for that specific slice* of the workforce.
+
+---
+
+## 🗂️ Dataset
+
+- **Source:** [IBM HR Analytics Employee Attrition & Performance](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) (Kaggle, fictional data created by IBM data scientists)
+- **Size:** 1,470 employees × 35 fields
+- **Target variable:** `Attrition` (Yes/No)
+
+> Note: this dataset has no geographic "Region" field. `Department` and `Job Role` are used as the organizational-region filters instead.
+
+---
+
+## 📊 Dashboard Preview
+
+*(Add a screenshot of the final dashboard here, e.g. `![Dashboard Preview](assets/dashboard_preview.png)`)*
+
+---
+
+## 🔎 Key Insights
+
+Based on the full (unfiltered) dataset:
+
+- **Overtime is the single strongest behavioral driver** — employees who work overtime leave at roughly **3x the rate** of those who don't (~30.5% vs ~10.4%).
+- **Sales Representatives carry the highest attrition risk** of any role (~40%), while **Research Directors** are the most stable (~2.5%).
+- **Attrition skews young** — the 18–24 age group leaves at nearly **40%**, decreasing steadily with each older age bracket.
+- **Single employees churn more** than married or divorced employees.
+- **Job satisfaction and attrition move inversely** — the "Low" satisfaction group has a noticeably higher attrition rate than "Very High."
+- **Pay gaps widen at senior levels** — among employees who left, average monthly income tends to lag behind their peers who stayed, and the gap grows at higher job levels.
+
+*(These are patterns in the raw data; correlation here does not imply a single causal driver — see Limitations below.)*
+
+---
+
+## 🧭 Dashboard Features
+
+**Global filters** (apply to every chart simultaneously):
+- Department
+- Age Group *(calculated: 18-24 / 25-34 / 35-44 / 45-54 / 55+)*
+- Job Role
+- OverTime (Yes/No)
+- Marital Status
+
+**KPI summary strip:**
+- Total Employees (in current filter view)
+- Attrition Rate
+- Average Monthly Income
+- Average Years at Company
+
+**Charts:**
+| Chart | Question it answers |
+|---|---|
+| Attrition by Department | Which departments lose the most people? |
+| Attrition by Age Group | Which career stage is highest-risk? |
+| OverTime vs. Attrition | Does overtime status predict attrition? |
+| Income by Job Level & Attrition | Is pay a factor, and at which levels? |
+| Attrition by Job Satisfaction | Does self-reported satisfaction track with leaving? |
+| Distance From Home by Job Role | Does commute distance differ for leavers vs. stayers, by role? |
+| Attrition Rate by Job Role | Which specific roles are highest/lowest risk? |
+
+---
+
+## 🛠️ Tools & Techniques
+
+- **Tableau Public** (Desktop for authoring, Public for hosting)
+- Calculated fields:
+  - `Attrition Flag` — converts Yes/No into 1/0 so attrition can be averaged into a rate
+  - `Age Group` — bins raw `Age` into five brackets
+  - `Job Satisfaction Label`, `Work Life Balance Label`, `Environment Satisfaction Label`, `Job Involvement Label` — map IBM's 1–4 ordinal codes to readable text
+  - `Distance If Left` — isolates commute distance only for employees who left, used to sort roles by that specific signal rather than a blended average
+- Dashboard actions and "Apply to Worksheets → All Using This Data Source" filters for cross-chart interactivity
+
+---
+
+## 📁 Repository Structure
+
+```
+├── data/
+│   └── WA_Fn-UseC_-HR-Employee-Attrition.csv   # Raw IBM dataset
+├── assets/
+│   └── dashboard_preview.png                    # Screenshot of the published dashboard
+├── HR_Attrition_Dashboard.twbx                  # Packaged Tableau workbook
+└── README.md
+```
+
+---
+
+## ▶️ How to Reproduce
+
+1. Download [Tableau Public](https://www.tableau.com/products/public/download) (free).
+2. Open `HR_Attrition_Dashboard.twbx` in Tableau Public Desktop, or connect fresh to `data/WA_Fn-UseC_-HR-Employee-Attrition.csv`.
+3. Recreate the calculated fields listed above under **Tools & Techniques**.
+4. Build each worksheet and assemble the dashboard as described, or simply open the packaged `.twbx` to explore the finished version directly.
+
+---
+
+## ⚠️ Limitations
+
+- This is a **fictional dataset** generated by IBM for demonstration purposes — findings should not be generalized to real organizations.
+- Attrition-rate comparisons across small subgroups (e.g., a single job role filtered down further by age group) can be based on very few employees and should be read with caution.
+- Correlational patterns (e.g., overtime ↔ attrition) do not establish causation.
+
+---
+
+## 👤 Author
+
+**Mayank Jaiswal**
+Data Analyst Intern | Data Analytics & Visualization
+[GitHub](https://github.com/) · [LinkedIn](https://linkedin.com/)
