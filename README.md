@@ -107,7 +107,7 @@ Based on the full, unfiltered dataset:
 
 | Tool | Purpose |
 |:---:|---|
-| <img src="https://cdn.simpleicons.org/tableau/E97627" width="28"/> **Tableau Public** | Dashboard authoring, calculated fields & publishing |
+| [<img src="https://cdn.simpleicons.org/tableau/E97627" width="28"/>] **Tableau Public** | Dashboard authoring, calculated fields & publishing |
 | <img src="https://cdn.simpleicons.org/kaggle/20BEFF" width="28"/> **Kaggle** | Source of the IBM HR Attrition dataset |
 | <img src="https://cdn.simpleicons.org/googlesheets/34A853" width="28"/> **CSV** | Raw tabular data format |
 | <img src="https://cdn.simpleicons.org/github/181717" width="28"/> **GitHub** | Version control & project hosting |
